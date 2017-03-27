@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+# import libraries
 import time
 import pdb
 from termcolor import colored
@@ -37,10 +38,24 @@ def post_weather(temp, humidity):
 	
 	lcd.clear()
 	#pdb.set_trace()
-	# Set LCd backlight color to blue 
-	lcd.set_color(1.0,1.0,0.0)
 	#print colored(elem + ": " + price + " " + change, 'red')
 	
+	if temp < 50:
+		# blue
+		lcd.set_color(0.0, 1.0, 0.0)
+	elif (50 < temp < 65):
+		# cyan
+		lcd.set_color(0.0, 1.0, 1.0)
+	elif (65 < temp < 80):
+		# green
+		lcd.set_color(0.0, 1.0, 0.0)
+	elif (80 < temp < 100):
+		# yellow
+		lcd.set_color(1.0, 1.0, 1.0)
+	else:
+		# red
+		lcd.set_color(1.0, 0.0, 0.0)
+
 	# Quote on first line + price info on second line
 	lcd.message('Temp: ' + str(temp) + chr(223) + 'F' + '\n' + 'Humidity: ' + str(humidity) + '%')
         return 0
