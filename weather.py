@@ -51,7 +51,7 @@ def post_weather(temp, humidity):
 		lcd.set_color(0.0, 1.0, 0.0)
 	elif (80 < temp < 100):
 		# yellow
-		lcd.set_color(1.0, 1.0, 1.0)
+		lcd.set_color(1.0, 1.0, 0.0)
 	else:
 		# red
 		lcd.set_color(1.0, 0.0, 0.0)
