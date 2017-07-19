@@ -32,6 +32,9 @@ empty_space = '                '
 api_key = 'f5d11783a8eac21d0380c314d73c4ebb'
 owm = pyowm.OWM(api_key) 
 
+# Location
+observation = owm.weather_at_place('Folsom,ca')
+
 def post_weather(temp, humidity):
 	
 	# Clear LCD, reset cursor
@@ -64,7 +67,7 @@ def post_weather(temp, humidity):
 
 # Run in a loop
 while 1:
-	observation = owm.weather_at_place('Folsom,ca')
+
 	try:
 		w = observation.get_weather()
 		temp = w.get_temperature('fahrenheit')
