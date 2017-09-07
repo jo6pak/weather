@@ -69,14 +69,18 @@ def post_weather(temp, humidity):
 while 1:
 
 	try:
+		observation = owm.weather_at_place('Folsom,ca')
 		w = observation.get_weather()
 		temp = w.get_temperature('fahrenheit')
 	except (RuntimeError, TypeError, NameError):
 		print "Caught Exception...whatever.."
+	timestamp = str(datetime.now())
+	#print timestamp
 	curr_temp = temp['temp']
 	#print curr_temp
 	humidity = w.get_humidity()
 	#print humidity
 	post_weather(curr_temp,humidity)
 	#print colored(curr_temp, 'blue')
+	print timestamp + "," + str(curr_temp)
 	time.sleep(600)
